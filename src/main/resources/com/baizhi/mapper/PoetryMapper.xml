@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.basic.PoetryDAO">
+
+
+    <select id="findAll" resultType="Poetry">
+      select
+        p1.id,
+        p1.content,
+        p1.title,
+        p2.`name` as author
+      from poetries p1
+      LEFT JOIN poets p2
+      on p1.poet_id = p2.id
+    </select>
+
+</mapper>
